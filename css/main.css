@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400&display=swap");
+:root {
+  --text-color-1: #fff;
+}
+
 *,
 *::before,
 *::after {
@@ -11,13 +16,210 @@
   font-size: 62.5%;
 }
 
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.header {
+  height: 9rem;
+  padding: 2.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header > *:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.menu {
+  position: relative;
+  height: 100%;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.menu span {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 0.2rem;
+  width: 100%;
+  background-color: var(--text-color-1);
+  transition: 0.15s ease-in-out;
+}
+.menu span:nth-child(1) {
+  transform: translateY(-600%);
+}
+.menu span:nth-child(2) {
+  transform: rotateZ(0deg);
+}
+.menu span:nth-child(3) {
+  transform: translateY(600%);
+}
+.menu span:nth-child(4) {
+  opacity: 0;
+  transform: translateY(-1000%) translateX(-50%) rotateZ(45deg);
+}
+.menu span:nth-child(5) {
+  opacity: 0;
+  transform: translateY(-1000%) translateX(50%) rotateZ(-45deg);
+}
+.menu:hover > span:nth-child(1) {
+  opacity: 0;
+  transform: translateY(-600%) translateX(100%);
+}
+.menu:hover > span:nth-child(2) {
+  opacity: 0;
+}
+.menu:hover > span:nth-child(3) {
+  opacity: 0;
+  transform: translateY(600%) translateX(-100%);
+}
+.menu:hover > span:nth-child(4) {
+  opacity: 1;
+  transform: rotateZ(45deg);
+}
+.menu:hover > span:nth-child(5) {
+  opacity: 1;
+  transform: rotateZ(-45deg);
+}
+
+.hinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+  color: var(--text-color-1);
+}
+.hinfo__city {
+  font-size: 3rem;
+  font-weight: 300;
+}
+.hinfo__time {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.search {
+  position: relative;
+  height: 100%;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+}
+.search__icon {
+  fill: white;
+  height: 100%;
+  width: 100%;
+}
+
+.today {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10rem;
+  color: var(--text-color-1);
+}
+.today__now {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.today__now--wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.today__now--weather {
+  font-size: 5rem;
+  font-weight: 200;
+}
+.today__now--temperature {
+  line-height: 1;
+  font-weight: 100;
+  font-size: 13rem;
+  letter-spacing: 0;
+}
+.today__day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: 2rem;
+}
+.today__day > * {
+  margin-bottom: 1rem;
+}
+.today__day > *:last-child {
+  margin-bottom: 2rem;
+}
+.today__day--line {
+  height: 1px;
+  width: 50%;
+  background-color: var(--text-color-1);
+}
+.today__day--highest {
+  font-size: 2.75rem;
+  font-weight: 300;
+}
+.today__day--lowest {
+  font-size: 2.75rem;
+  font-weight: 300;
+}
+
+.future {
+  width: 100%;
+  margin-top: 10rem;
+  display: flex;
+  color: var(--text-color-1);
+  overflow-y: scroll;
+}
+.future__day {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 8rem;
+}
+.future__day:not(:last-child) {
+  margin-right: 0.5rem;
+}
+.future__day--temperature {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+.future__day--hour {
+  font-size: 2rem;
+  font-weight: 300;
+}
+.future__day--icon {
+  width: 100%;
+}
+
 .background {
   position: fixed;
+  z-index: -1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(#574b90, #cf6a87);
+  background: linear-gradient(#574b90, #cf6a87);
 }
 
 /*# sourceMappingURL=main.css.map */

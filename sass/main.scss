@@ -7,6 +7,10 @@
 @import 'base/typography';
 @import 'base/utilities';
 
+@import 'components/header';
+@import 'components/today';
+@import 'components/future';
+
 @import 'layout/background';
 
 @import 'pages/home';

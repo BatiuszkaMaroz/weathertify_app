@@ -1,0 +1,66 @@
+.today {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10rem;
+  color: var(--text-color-1);
+
+  &__now {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+    &--wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &--weather {
+      font-size: 5rem;
+      font-weight: 200;
+    }
+
+    &--temperature {
+      line-height: 1;
+      font-weight: 100;
+      font-size: 13rem;
+      letter-spacing: 0;
+    }
+  }
+
+  &__day {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-left: 2rem;
+
+    & > * {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 2rem;
+      }
+    }
+
+    &--line {
+      height: 1px;
+      width: 50%;
+      background-color: var(--text-color-1);
+    }
+
+    &--highest {
+      font-size: 2.75rem;
+      font-weight: 300;
+    }
+
+    &--lowest {
+      font-size: 2.75rem;
+      font-weight: 300;
+    }
+  }
+}
