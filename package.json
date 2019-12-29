@@ -1,12 +1,20 @@
 {
-  "name": "the_complete_weather_app",
+  "name": "the-complete-weather-app",
   "version": "1.0.0",
-  "description": "The Complete Weather App",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "live-server": "live-server",
-    "watch-sass": "sass --watch sass/main.scss:css/main.css"
+    "watch sass": "sass --watch sass/main.scss:css/main.css"
   },
-  "author": "Batiuszka Maroz",
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0"
+  }
 }
