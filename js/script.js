@@ -4,30 +4,19 @@ class Searcher {
     this.timer = '';
   }
 
-  // changeIcon(order) {
-  //   if(order === 'add') {
-  //     document.querySelector('.icon__wrap').classList.add('icon__change');
-  //   }
-  //   else {
-  //     document.querySelector('.icon__wrap').classList.remove('icon__change');
-  //   }
-  // }
-
   changeIcon() {
     document.querySelector('.icon__wrap').classList.toggle('icon__change');
   }
 
-  // slowChangeIcon() {
-  //   const timer = this.timer;
-  //   window.clearTimeout(timer);
-  //   this.timer = setTimeout(()=> this.changeIcon('rmv'), 0);
-  // }
+  search(event) {
+    console.log(event.key);
+    document.querySelector('.hinfo__city').value = event.key;
+  }
 
   setListener() {
-    // document.querySelector('.hinfo__city').addEventListener('focus', this.changeIcon.bind(this, 'add'));
-    // document.querySelector('.hinfo__city').addEventListener('blur', this.slowChangeIcon.bind(this));
     document.querySelector('.hinfo__city').addEventListener('focus', this.changeIcon);
     document.querySelector('.hinfo__city').addEventListener('blur', this.changeIcon);
+    document.querySelector('.hinfo__city').addEventListener('keydown', this.search);
     document.querySelector('.search').addEventListener('click', ()=> console.log('a'));
   }
 }
