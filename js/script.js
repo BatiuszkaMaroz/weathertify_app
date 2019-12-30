@@ -25,6 +25,29 @@ class Fetcher {
     DOM.get('tlow').textContent = `${(curdata.main.temp_min).toFixed(0)}°`;
     DOM.get('ticon').setAttribute('src', `http://openweathermap.org/img/wn/${curdata.weather[0].icon}@2x.png`);
 
+    const date = new Date();
+    const today = date.getDate();
+    const tab = longdata.list;
+    const filteredTab = tab.filter((elm) => {
+      if((elm.dt_txt).slice(8,10) == today) return false;
+      if((elm.dt_txt).slice(11,13) == '12' || (elm.dt_txt).slice(11,13) == '00') return true;
+    })
+
+    const folDays = document.querySelectorAll('.following__day');
+    for(let i = 0; i < 8; i += 2) {
+      folDays[i/2].querySelector('.following__temperature').textContent = `${(filteredTab[i].main.temp).toFixed(0)}° / ${(filteredTab[i+1].main.temp).toFixed(0)}°`;
+      folDays[i/2].querySelector('.following__icon').setAttribute('src', `http://openweathermap.org/img/wn/${filteredTab[i+1].weather[0].icon}@2x.png`);
+
+      const day = getDay(date.getDay() + 1 + i/2);
+
+      const todays = new Date()
+      const tomorrow = new Date(todays)
+      tomorrow.setDate(tomorrow.getDate() + 1 + i/2);
+
+      folDays[i/2].querySelector('.following__date').textContent = `${day}, ${tomorrow.getDate()}.${tomorrow.getMonth() + 1}`;
+
+    }
+
     for(let i = 0; i < 9; i++) {
       const element = document.importNode(document.querySelector('.future--node').content, true);
       element.querySelector('.future__day--temperature').textContent = `${(longdata.list[i].dt_txt).slice(11, 16)}`;
@@ -89,13 +112,9 @@ class Fetcher {
     document.querySelector('.search').style.pointerEvents = '';
   };
 
-
-
-  //api.openweathermap.org/data/2.5/weather?lat=35&lon=139
-
-
   setListener() {
     document.querySelector('.search').addEventListener('click', this.fetchData);
+    // document.querySelector('.search').click();
   }
 }
 
@@ -129,6 +148,13 @@ function updateDate() {
   else {
     pronoun = 'am';
   }
+  day = getDay(day);
+
+  const string = `${day}, ${hours}.${minutes} ${pronoun}`;
+  document.querySelector('.hinfo__time').textContent = string;
+}
+
+function getDay(day) {
   switch(day) {
     case 0:
       day = 'Sun';
@@ -152,7 +178,5 @@ function updateDate() {
       day = 'Sat';
       break;
   }
-
-  const string = `${day}, ${hours}.${minutes} ${pronoun}`;
-  document.querySelector('.hinfo__time').textContent = string;
+  return day;
 }

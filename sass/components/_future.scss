@@ -1,6 +1,10 @@
 .future {
   width: 100%;
-  margin-top: 10rem;
+  margin-top: 8rem;
+  border-top: 1px solid white;
+  padding-top: 2rem;
+  border-bottom: 1px solid white;
+  padding-bottom: 1rem;
   display: flex;
   color: var(--text-color-1);
   overflow-y: scroll;
