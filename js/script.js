@@ -185,3 +185,11 @@ function getDay(day) {
   }
   return day;
 }
+
+
+document.querySelector('.menu').addEventListener('click', openMenu);
+
+function openMenu() {
+  document.querySelector('.content--2').classList.toggle('open-menu');
+  document.querySelector('.menu').classList.toggle('open-hamburger');
+}
