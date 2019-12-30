@@ -48,6 +48,11 @@ class Fetcher {
 
     }
 
+    const existing = document.querySelectorAll('.future__day');
+    for (const elm of existing) {
+      elm.remove();
+    }
+
     for(let i = 0; i < 9; i++) {
       const element = document.importNode(document.querySelector('.future--node').content, true);
       element.querySelector('.future__day--temperature').textContent = `${(longdata.list[i].dt_txt).slice(11, 16)}`;
