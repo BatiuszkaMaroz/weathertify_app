@@ -22,10 +22,21 @@
     height: 8rem;
     border-left: 1px solid white;
     border-bottom: 1px solid white;
-    // background-color: rgba(white, 0.2);
-    // border-radius: 8px;
     &:not(:last-child) {
       margin-bottom: 3rem;
     }
   }
 }
+
+// .side-anime {
+//   animation: rotate01 .5s ease-out .5s forwards;
+// }
+
+// @keyframes rotate01 {
+//   0% {
+//     transform: rotateZ(0);
+//   }
+//   100% {
+//     transform: rotateZ(-25deg);
+//   }
+// }

@@ -127,21 +127,39 @@ body {
   font-weight: 300;
 }
 
-.search {
-  position: relative;
-  height: 100%;
+.icon__viewbox {
+  height: 4rem;
   width: 4rem;
+  overflow: hidden;
+}
+
+.icon__wrap {
+  width: 100%;
+  transition: 0.2s linear;
+}
+.icon__wrap > *:not(:last-child) {
+  margin-bottom: 4rem;
+}
+
+.globe, .search {
+  position: relative;
+  height: 4rem;
+  width: 100%;
   display: flex;
   align-items: center;
 }
-.search__icon {
+.globe__icon, .search__icon {
   fill: white;
   height: 100%;
   width: 100%;
 }
-.search__icon path {
+.globe__icon path, .search__icon path {
   width: 100%;
   height: 100%;
+}
+
+.icon__change {
+  transform: translateY(-67%);
 }
 
 .following {

@@ -1,3 +1,25 @@
+class Searcher {
+  constructor() {
+    this.setListener();
+    this.timer = '';
+  }
+
+  changeIcon() {
+    document.querySelector('.icon__wrap').classList.toggle('icon__change');
+  }
+
+  slowChangeIcon() {
+    const timer = this.timer;
+    window.clearTimeout(timer);
+    this.timer = setTimeout(()=> this.changeIcon(), 2000);
+  }
+
+  setListener() {
+    document.querySelector('.hinfo__city').addEventListener('focus', this.changeIcon);
+    document.querySelector('.hinfo__city').addEventListener('blur', this.slowChangeIcon.bind(this));
+  }
+}
+
 class Fetcher {
   constructor() {
     this.setListener();
@@ -98,7 +120,7 @@ class Fetcher {
 
   fetchData() {
     document.querySelector('.loader').style.display = 'block';
-    document.querySelector('.search').style.pointerEvents = 'none';
+    document.querySelector('.globe').style.pointerEvents = 'none';
     const geolocation = this.getGeo.call(this);
     geolocation
     .then(data => {
@@ -114,17 +136,18 @@ class Fetcher {
       document.querySelector('.loader').style.display = '';
       this.updateDOM(data, this.longdata, this.DOMmap);
     });
-    document.querySelector('.search').style.pointerEvents = '';
+    document.querySelector('.globe').style.pointerEvents = '';
   };
 
   setListener() {
-    document.querySelector('.search').addEventListener('click', this.fetchData.bind(this));
-    // document.querySelector('.search').click();
+    document.querySelector('.globe').addEventListener('click', this.fetchData.bind(this));
+    // document.querySelector('.globe').click();
   }
 }
 
 class App {
   static init() {
+    const searcher = new Searcher();
     const fetcher = new Fetcher();
     setInterval(()=> {
       updateDate();
@@ -192,4 +215,7 @@ document.querySelector('.menu').addEventListener('click', openMenu);
 function openMenu() {
   document.querySelector('.content--2').classList.toggle('open-menu');
   document.querySelector('.menu').classList.toggle('open-hamburger');
+  // document.querySelectorAll('.side__element').forEach(elm => {
+  //   elm.classList.toggle('side-anime');
+  // })
 }
