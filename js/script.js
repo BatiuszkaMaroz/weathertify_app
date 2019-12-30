@@ -12,17 +12,20 @@ class Fetcher {
     map.set('ttemp', document.querySelector('.today__now--temperature'));
     map.set('thigh', document.querySelector('.today__day--highest'));
     map.set('tlow', document.querySelector('.today__day--lowest'));
+    map.set('ticon', document.querySelector('.today__now--icon'));
     this.DOMmap = map;
   }
 
   updateDOM(curdata, longdata, DOM) {
+    console.log(curdata);
     DOM.get('hcity').textContent = `${curdata.name}`;
     DOM.get('tweather').textContent = `${curdata.weather[0].main}`;
     DOM.get('ttemp').textContent = `${(curdata.main.temp).toFixed(0)}°`;
     DOM.get('thigh').textContent = `${(curdata.main.temp_max).toFixed(0)}°`;
     DOM.get('tlow').textContent = `${(curdata.main.temp_min).toFixed(0)}°`;
+    DOM.get('ticon').setAttribute('src', `http://openweathermap.org/img/wn/${curdata.weather[0].icon}@2x.png`);
 
-    for(let i = 0; i < 8; i++) {
+    for(let i = 0; i < 9; i++) {
       const element = document.importNode(document.querySelector('.future--node').content, true);
       element.querySelector('.future__day--temperature').textContent = `${(longdata.list[i].dt_txt).slice(11, 16)}`;
       element.querySelector('.future__day--hour').textContent = `${(longdata.list[i].main.temp).toFixed(0)}°`;
@@ -66,6 +69,7 @@ class Fetcher {
   };
 
   fetchData = () => {
+    document.querySelector('.loader').style.display = 'block';
     document.querySelector('.search').style.pointerEvents = 'none';
     const geolocation = this.getGeo();
     geolocation
@@ -79,6 +83,7 @@ class Fetcher {
       return this.callServer2(this.lati, this.long);
     })
     .then(data => {
+      document.querySelector('.loader').style.display = '';
       this.updateDOM(data, this.longdata, this.DOMmap);
     });
     document.querySelector('.search').style.pointerEvents = '';

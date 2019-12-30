@@ -18,9 +18,21 @@
       align-items: center;
     }
 
+    &--wrap2 {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
     &--weather {
-      font-size: 5rem;
+      display: inline-block;
+      font-size: 4rem;
       font-weight: 200;
+    }
+
+    &--icon {
+      display: inline-block;
+      width: 6rem;
     }
 
     &--temperature {
