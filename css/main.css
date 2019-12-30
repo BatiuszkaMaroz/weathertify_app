@@ -117,6 +117,9 @@ body {
   text-align: center;
   outline: none;
 }
+.hinfo__city::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
 .hinfo__city:focus {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 20px;

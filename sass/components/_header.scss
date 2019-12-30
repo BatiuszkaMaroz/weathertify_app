@@ -106,6 +106,10 @@
     text-align: center;
     outline: none;
 
+    &::placeholder {
+      color: rgba(white, .5);
+    }
+
     &:focus {
       background-color: rgba(black, .2);
       border-radius: 20px;
