@@ -23,7 +23,7 @@ class Fetcher {
     DOM.get('ttemp').textContent = `${(curdata.main.temp).toFixed(0)}°`;
     DOM.get('thigh').textContent = `${(curdata.main.temp_max).toFixed(0)}°`;
     DOM.get('tlow').textContent = `${(curdata.main.temp_min).toFixed(0)}°`;
-    DOM.get('ticon').setAttribute('src', `http://openweathermap.org/img/wn/${curdata.weather[0].icon}@2x.png`);
+    DOM.get('ticon').setAttribute('src', `https://openweathermap.org/img/wn/${curdata.weather[0].icon}@2x.png`);
 
     const date = new Date();
     const today = date.getDate();
@@ -36,7 +36,7 @@ class Fetcher {
     const folDays = document.querySelectorAll('.following__day');
     for(let i = 0; i < 8; i += 2) {
       folDays[i/2].querySelector('.following__temperature').textContent = `${(filteredTab[i].main.temp).toFixed(0)}° / ${(filteredTab[i+1].main.temp).toFixed(0)}°`;
-      folDays[i/2].querySelector('.following__icon').setAttribute('src', `http://openweathermap.org/img/wn/${filteredTab[i+1].weather[0].icon}@2x.png`);
+      folDays[i/2].querySelector('.following__icon').setAttribute('src', `https://openweathermap.org/img/wn/${filteredTab[i+1].weather[0].icon}@2x.png`);
 
       const day = getDay(date.getDay() + 1 + i/2);
 
@@ -52,7 +52,7 @@ class Fetcher {
       const element = document.importNode(document.querySelector('.future--node').content, true);
       element.querySelector('.future__day--temperature').textContent = `${(longdata.list[i].dt_txt).slice(11, 16)}`;
       element.querySelector('.future__day--hour').textContent = `${(longdata.list[i].main.temp).toFixed(0)}°`;
-      element.querySelector('.future__day--icon').setAttribute('src', `http://openweathermap.org/img/wn/${longdata.list[i].weather[0].icon}@2x.png`);
+      element.querySelector('.future__day--icon').setAttribute('src', `https://openweathermap.org/img/wn/${longdata.list[i].weather[0].icon}@2x.png`);
       document.querySelector('.future').append(element);
     }
   }
