@@ -154,12 +154,10 @@ body {
   justify-content: center;
 }
 .today__now--weather {
-  display: inline-block;
   font-size: 4rem;
   font-weight: 200;
 }
 .today__now--icon {
-  display: inline-block;
   width: 6rem;
 }
 .today__now--temperature {
@@ -293,6 +291,10 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(#574b90, #cf6a87);
+}
+
+main {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
