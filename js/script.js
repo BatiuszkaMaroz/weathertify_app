@@ -93,6 +93,7 @@ class Fetcher {
 
   fetchData = () => {
     document.querySelector('.loader').style.display = 'block';
+    alert('a!');
     document.querySelector('.search').style.pointerEvents = 'none';
     const geolocation = this.getGeo();
     geolocation
