@@ -102,12 +102,25 @@ body {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  max-width: 60%;
   height: 100%;
   color: var(--text-color-1);
 }
 .hinfo__city {
+  width: 100%;
+  font: inherit;
   font-size: 3rem;
   font-weight: 300;
+  background: transparent;
+  border: none;
+  color: var(--color-text-1);
+  text-align: center;
+  outline: none;
+}
+.hinfo__city:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 0 1rem;
 }
 .hinfo__time {
   font-size: 1.5rem;

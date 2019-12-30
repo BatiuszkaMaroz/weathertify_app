@@ -18,7 +18,7 @@ class Fetcher {
 
   updateDOM(curdata, longdata, DOM) {
     document.querySelector('main').style.display = 'block';
-    DOM.get('hcity').textContent = `${curdata.name}`;
+    DOM.get('hcity').value = `${curdata.name}`;
     DOM.get('tweather').textContent = `${curdata.weather[0].main}`;
     DOM.get('ttemp').textContent = `${(curdata.main.temp).toFixed(0)}°`;
     DOM.get('thigh').textContent = `${(curdata.main.temp_max).toFixed(0)}°`;
