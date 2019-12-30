@@ -58,7 +58,7 @@ class Fetcher {
   }
 
   //Fetches Current Geolocalization
-  getGeo = () => {
+  getGeo() {
     const promise = new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         result => {
@@ -73,7 +73,7 @@ class Fetcher {
     return promise;
   };
 
-  callServer = (lati, long) => {
+  callServer(lati, long) {
     const promise = new Promise((resolve, reject) => {
       fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lati}&lon=${long}&units=metric&APPID=7fa3cf512c6e4d72224e3dccc9e8cb2b`)
       .then(data => data.json())
@@ -82,7 +82,7 @@ class Fetcher {
     return promise;
   };
 
-  callServer2 = (lati, long) => {
+  callServer2(lati, long) {
     const promise = new Promise((resolve, reject) => {
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&units=metric&APPID=7fa3cf512c6e4d72224e3dccc9e8cb2b`)
       .then(data => data.json())
@@ -91,20 +91,19 @@ class Fetcher {
     return promise;
   };
 
-  fetchData = () => {
+  fetchData() {
     document.querySelector('.loader').style.display = 'block';
-    alert('a!');
     document.querySelector('.search').style.pointerEvents = 'none';
-    const geolocation = this.getGeo();
+    const geolocation = this.getGeo.call(this);
     geolocation
     .then(data => {
       this.lati = data.coords.latitude;
       this.long = data.coords.longitude;
-      return this.callServer(this.lati, this.long);
+      return this.callServer.call(this, this.lati, this.long);
     })
     .then(data => {
       this.longdata = data;
-      return this.callServer2(this.lati, this.long);
+      return this.callServer2.call(this, this.lati, this.long);
     })
     .then(data => {
       document.querySelector('.loader').style.display = '';
@@ -114,7 +113,7 @@ class Fetcher {
   };
 
   setListener() {
-    document.querySelector('.search').addEventListener('click', this.fetchData);
+    document.querySelector('.search').addEventListener('click', this.fetchData.bind(this));
     // document.querySelector('.search').click();
   }
 }
