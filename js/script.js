@@ -4,18 +4,23 @@ class Searcher {
     this.timer = '';
   }
 
-  changeIcon() {
-    document.querySelector('.icon__wrap').classList.toggle('icon__change');
+  changeIcon(order) {
+    if(order === 'add') {
+      document.querySelector('.icon__wrap').classList.add('icon__change');
+    }
+    else {
+      document.querySelector('.icon__wrap').classList.remove('icon__change');
+    }
   }
 
   slowChangeIcon() {
     const timer = this.timer;
     window.clearTimeout(timer);
-    this.timer = setTimeout(()=> this.changeIcon(), 2000);
+    this.timer = setTimeout(()=> this.changeIcon('rmv'), 2000);
   }
 
   setListener() {
-    document.querySelector('.hinfo__city').addEventListener('focus', this.changeIcon);
+    document.querySelector('.hinfo__city').addEventListener('focus', this.changeIcon.bind(this, 'add'));
     document.querySelector('.hinfo__city').addEventListener('blur', this.slowChangeIcon.bind(this));
   }
 }
