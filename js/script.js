@@ -262,7 +262,7 @@ class App {
     this.fetcher = new Fetcher();
     setInterval(() => {
       updateDate();
-    }, 30000);
+    }, 5000);
   }
 }
 
