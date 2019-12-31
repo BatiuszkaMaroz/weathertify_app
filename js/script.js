@@ -63,7 +63,6 @@ class Fetcher {
   }
 
   updateDOM(curdata, longdata, DOM) {
-    console.log(curdata);
     document.querySelector('main').style.display = 'block';
     DOM.get('hcity').value = `${curdata.name}`;
     DOM.get('tweather').textContent = `${curdata.weather[0].main}`;
@@ -145,6 +144,16 @@ class Fetcher {
     addData[3].textContent = `${curdata.main.humidity} %`;
     addData[4].textContent = `${curdata.wind.speed} m/s`;
     addData[5].textContent = `${curdata.clouds.all} %`;
+
+    const videoElement = document.createElement('video');
+    videoElement.className = 'background__video';
+    videoElement.setAttribute('autoplay', 'true');
+    videoElement.setAttribute('muted', 'true');
+    videoElement.setAttribute('loop', 'true');
+    videoElement.innerHTML = `<source type="video/mp4" class="video__hook">`;
+    videoElement.querySelector('source').setAttribute('src', `videos/${curdata.weather[0].main}.mp4`);
+    document.querySelector('.background').prepend(videoElement);
+    this.videoElement = videoElement;
   }
 
   //Fetches Current Geolocalization
@@ -202,6 +211,7 @@ class Fetcher {
   }
 
   fetchData() {
+    if(this.videoElement) this.videoElement.remove();
     document.querySelector('main').style.display = '';
     document.querySelector('.loader').style.display = 'block';
     document.querySelector('.globe').style.pointerEvents = 'none';
