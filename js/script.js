@@ -1,5 +1,6 @@
 class Searcher {
   constructor() {
+    this.lastInput = '';
     this.input = document.querySelector('.hinfo__city');
     this.setListener();
   }
@@ -7,13 +8,19 @@ class Searcher {
   changeIcon() {
     document.querySelector('.icon__wrap').classList.toggle('icon__change');
     this.input.setAttribute('placeholder', this.input.value);
+    this.lastInput = this.input.value;
     this.input.value = '';
   }
 
   changeIcon2() {
     document.querySelector('.icon__wrap').classList.toggle('icon__change');
-    if (this.input.value === '')
+    if (this.input.value === '' && this.lastInput === '') {
       this.input.setAttribute('placeholder', 'Your City');
+    }
+    else if (this.input.value === '') {
+      this.input.value = this.lastInput;
+    }
+    this.lastInput = '';
   }
 
   searchCheck(event) {
