@@ -56,6 +56,7 @@ class Fetcher {
   }
 
   updateDOM(curdata, longdata, DOM) {
+    console.log(curdata);
     document.querySelector('main').style.display = 'block';
     DOM.get('hcity').value = `${curdata.name}`;
     DOM.get('tweather').textContent = `${curdata.weather[0].main}`;
@@ -100,8 +101,7 @@ class Fetcher {
 
       folDays[i / 2].querySelector(
         '.following__date',
-      ).textContent = `${day}, ${tomorrow.getDate()}.${tomorrow.getMonth() +
-        1}`;
+      ).textContent = `${day}, ${tomorrow.getDate()}.${tomorrow.getMonth() + 1}`;
     }
 
     const existing = document.querySelectorAll('.future__day');
@@ -128,6 +128,16 @@ class Fetcher {
         );
       document.querySelector('.future').append(element);
     }
+
+    const addData = document.querySelectorAll('.side__data');
+    const sunrise = new Date(curdata.sys.sunrise * 1000);
+    const sunset = new Date(curdata.sys.sunset * 1000);
+    addData[0].textContent = sunrise.toUTCString().slice(17, 22)
+    addData[1].textContent = sunset.toUTCString().slice(17, 22)
+    addData[2].textContent = `${curdata.main.pressure} hPa`;
+    addData[3].textContent = `${curdata.main.humidity} %`;
+    addData[4].textContent = `${curdata.wind.speed} m/s`;
+    addData[5].textContent = `${curdata.clouds.all} %`;
   }
 
   //Fetches Current Geolocalization

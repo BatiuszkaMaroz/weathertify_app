@@ -374,9 +374,24 @@ body {
   align-items: center;
   flex-direction: column;
 }
+.side__title {
+  font-size: 1.8rem;
+  color: white;
+  font-weight: 300;
+  margin-left: 0.5rem;
+}
+.side__data {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.75);
+}
 .side__element {
-  width: 8rem;
-  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 9rem;
+  height: 9rem;
   border-left: 1px solid white;
   border-bottom: 1px solid white;
 }
