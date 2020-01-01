@@ -145,13 +145,18 @@ class Fetcher {
     addData[4].textContent = `${curdata.wind.speed} m/s`;
     addData[5].textContent = `${curdata.clouds.all} %`;
 
+    //Fog different names Handler
+    let videoName = curdata.weather[0].main;
+    const altTab = ['Mist', 'Smoke', 'Haze', 'Dust', 'Sand', 'Dust', 'Ash', 'Squall', 'Tornado'];
+    if(altTab.includes(videoName)) videoName = 'Fog';
+
     const videoElement = document.createElement('video');
     videoElement.className = 'background__video';
     videoElement.setAttribute('autoplay', 'true');
     videoElement.setAttribute('muted', 'true');
     videoElement.setAttribute('loop', 'true');
     videoElement.innerHTML = `<source type="video/mp4" class="video__hook">`;
-    videoElement.querySelector('source').setAttribute('src', `videos/${curdata.weather[0].main}.mp4`);
+    videoElement.querySelector('source').setAttribute('src', `videos/${videoName}.mp4`);
     document.querySelector('.background').prepend(videoElement);
     this.videoElement = videoElement;
   }
