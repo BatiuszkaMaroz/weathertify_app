@@ -9,12 +9,29 @@
   right: 100%;
   position: absolute;
 
+  @include respond(tab) {
+    padding-top: 14rem;
+  }
+
+  @include respond(desktop) {
+    padding-top: 10rem;
+  }
+
   &__list {
     list-style: none;
     width: 50%;
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    @include respond(tab) {
+      padding-left: 8rem;
+    }
+
+    @include respond(desktop) {
+      align-items: flex-end;
+      padding-right: 10%;
+    }
   }
 
   &__title {
@@ -22,6 +39,16 @@
     color: white;
     font-weight: 300;
     margin-left: .5rem;
+
+    @include respond(tab) {
+      font-size: 2.1rem;
+      font-weight: 200;
+    }
+
+    @include respond(desktop) {
+      font-size: 2.6rem;
+      margin-left: 1rem;
+    }
   }
 
   &__data {
@@ -29,6 +56,16 @@
     margin-left: 1rem;
     font-weight: 200;
     color: rgba(white, .75);
+
+    @include respond(tab) {
+      font-size: 1.8rem;
+      font-weight: 100;
+    }
+
+    @include respond(desktop) {
+      font-size: 2.3rem;
+      margin-left: 2rem;
+    }
   }
 
   &__element {
@@ -41,6 +78,19 @@
     border-bottom: 1px solid white;
     &:not(:last-child) {
       margin-bottom: 3rem;
+      @include respond(desktop) {
+        margin-bottom: 5rem;
+      }
+    }
+
+    @include respond(tab) {
+      width: 10.5rem;
+      height: 10.5rem;
+    }
+
+    @include respond(desktop) {
+      width: 15rem;
+      height: 15rem;
     }
   }
 }

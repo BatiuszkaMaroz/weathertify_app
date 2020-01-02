@@ -9,6 +9,14 @@
 :root {
   box-sizing: border-box;
   font-size: 62.5%;
+
+  @include respond(tab) {
+    font-size: 75%;
+  }
+
+  @include respond(desktop) {
+    font-size: 80%;
+  }
 }
 
 

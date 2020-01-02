@@ -20,6 +20,10 @@
     color: var(--text-color-1);
     font-weight: 300;
     font-size: 2rem;
+
+    @include respond(desktop) {
+      max-width: 500px;
+    }
   }
 
   &__icon {

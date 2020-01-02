@@ -15,6 +15,16 @@
   box-sizing: border-box;
   font-size: 62.5%;
 }
+@media only screen and (min-width: 28em) {
+  :root {
+    font-size: 75%;
+  }
+}
+@media only screen and (min-width: 60em) {
+  :root {
+    font-size: 80%;
+  }
+}
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -117,6 +127,11 @@ body {
   text-align: center;
   outline: none;
 }
+@media only screen and (min-width: 60em) {
+  .hinfo__city {
+    max-width: 500px;
+  }
+}
 .hinfo__city::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -187,6 +202,11 @@ body {
   font-weight: 300;
   font-size: 2rem;
 }
+@media only screen and (min-width: 60em) {
+  .following__day {
+    max-width: 500px;
+  }
+}
 .following__icon {
   height: 100%;
 }
@@ -212,6 +232,11 @@ body {
   justify-content: center;
   align-items: flex-end;
 }
+@media only screen and (min-width: 60em) {
+  .today__now {
+    flex: 1.5;
+  }
+}
 .today__now--wrap {
   display: flex;
   flex-direction: column;
@@ -226,14 +251,29 @@ body {
   font-size: 4rem;
   font-weight: 200;
 }
+@media only screen and (min-width: 60em) {
+  .today__now--weather {
+    font-size: 6rem;
+  }
+}
 .today__now--icon {
   width: 6rem;
+}
+@media only screen and (min-width: 60em) {
+  .today__now--icon {
+    width: 10rem;
+  }
 }
 .today__now--temperature {
   line-height: 1;
   font-weight: 100;
   font-size: 13rem;
   letter-spacing: 0;
+}
+@media only screen and (min-width: 60em) {
+  .today__now--temperature {
+    font-size: 18rem;
+  }
 }
 .today__day {
   flex: 1;
@@ -252,15 +292,31 @@ body {
 .today__day--line {
   height: 1px;
   width: 50%;
+  max-width: 50px;
   background-color: var(--text-color-1);
+}
+@media only screen and (min-width: 60em) {
+  .today__day--line {
+    max-width: 75px;
+  }
 }
 .today__day--highest {
   font-size: 2.75rem;
   font-weight: 300;
 }
+@media only screen and (min-width: 60em) {
+  .today__day--highest {
+    font-size: 3.75rem;
+  }
+}
 .today__day--lowest {
   font-size: 2.75rem;
   font-weight: 300;
+}
+@media only screen and (min-width: 60em) {
+  .today__day--lowest {
+    font-size: 3.75rem;
+  }
 }
 
 .loader2, .loader {
@@ -331,7 +387,13 @@ body {
   padding-bottom: 1rem;
   display: flex;
   color: var(--text-color-1);
-  overflow-y: scroll;
+  overflow-x: scroll;
+}
+@media only screen and (min-width: 60em) {
+  .future {
+    justify-content: center;
+    overflow-x: hidden;
+  }
 }
 .future__day {
   display: flex;
@@ -342,6 +404,16 @@ body {
 }
 .future__day:not(:last-child) {
   margin-right: 0.5rem;
+}
+@media only screen and (min-width: 60em) {
+  .future__day:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+@media only screen and (min-width: 70em) {
+  .future__day:not(:last-child) {
+    margin-right: 2.5rem;
+  }
 }
 .future__day--temperature {
   font-size: 2rem;
@@ -367,6 +439,16 @@ body {
   right: 100%;
   position: absolute;
 }
+@media only screen and (min-width: 28em) {
+  .side {
+    padding-top: 14rem;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .side {
+    padding-top: 10rem;
+  }
+}
 .side__list {
   list-style: none;
   width: 50%;
@@ -374,17 +456,52 @@ body {
   align-items: center;
   flex-direction: column;
 }
+@media only screen and (min-width: 28em) {
+  .side__list {
+    padding-left: 8rem;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .side__list {
+    align-items: flex-end;
+    padding-right: 10%;
+  }
+}
 .side__title {
   font-size: 1.8rem;
   color: white;
   font-weight: 300;
   margin-left: 0.5rem;
 }
+@media only screen and (min-width: 28em) {
+  .side__title {
+    font-size: 2.1rem;
+    font-weight: 200;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .side__title {
+    font-size: 2.6rem;
+    margin-left: 1rem;
+  }
+}
 .side__data {
   font-size: 1.5rem;
   margin-left: 1rem;
   font-weight: 200;
   color: rgba(255, 255, 255, 0.75);
+}
+@media only screen and (min-width: 28em) {
+  .side__data {
+    font-size: 1.8rem;
+    font-weight: 100;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .side__data {
+    font-size: 2.3rem;
+    margin-left: 2rem;
+  }
 }
 .side__element {
   display: flex;
@@ -397,6 +514,23 @@ body {
 }
 .side__element:not(:last-child) {
   margin-bottom: 3rem;
+}
+@media only screen and (min-width: 60em) {
+  .side__element:not(:last-child) {
+    margin-bottom: 5rem;
+  }
+}
+@media only screen and (min-width: 28em) {
+  .side__element {
+    width: 10.5rem;
+    height: 10.5rem;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .side__element {
+    width: 15rem;
+    height: 15rem;
+  }
 }
 
 .background {
@@ -439,15 +573,36 @@ body {
 .scroller {
   width: 100%;
   max-height: 100vh;
+}
+
+.open-scroller {
   overflow-y: scroll;
 }
 
 .open-menu {
   transform: rotateZ(25deg) translateY(-12%);
 }
+@media only screen and (min-width: 60em) {
+  .open-menu {
+    transform: translateX(25%);
+  }
+}
 
 main {
   display: none;
+}
+
+@media only screen and (min-width: 60em) {
+  body ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 10px;
+  }
+  body ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  body ::-webkit-scrollbar-track {
+    border-left: 1px solid white;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

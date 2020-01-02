@@ -63,6 +63,7 @@ class Fetcher {
   }
 
   updateDOM(curdata, longdata, DOM) {
+    document.querySelector('.scroller').classList.add('open-scroller');
     document.querySelector('main').style.display = 'block';
     DOM.get('hcity').value = `${curdata.name}`;
     DOM.get('tweather').textContent = `${curdata.weather[0].main}`;
@@ -99,7 +100,7 @@ class Fetcher {
           }@2x.png`,
         );
 
-      const day = getDay(date.getDay() + 1 + i / 2);
+      const day = getDay((date.getDay() + 1 + i / 2) % 7);
 
       const todays = new Date();
       const tomorrow = new Date(todays);
@@ -246,6 +247,8 @@ class Fetcher {
   }
 
   fetchNameData(name) {
+    // console.log(this.videoElement.querySelector('source').getAttribute('src').split('.')[0].split('/')[1] === ); //Performance protorype /no new video load/
+    if(this.videoElement) this.videoElement.remove();
     document.querySelector('main').style.display = '';
     document.querySelector('.loader').style.display = 'block';
     this.callServer(undefined,undefined,name)
@@ -301,6 +304,7 @@ function updateDate() {
   } else {
     pronoun = 'am';
   }
+  day %= 7;
   day = getDay(day);
 
   const string = `${day}, ${hours}.${minutes} ${pronoun}`;

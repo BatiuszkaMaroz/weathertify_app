@@ -1,3 +1,18 @@
 main {
   display: none;
 }
+
+body {
+  @include respond (desktop) {
+    ::-webkit-scrollbar {
+      background-color: transparent;
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(white, .5);
+    }
+    ::-webkit-scrollbar-track {
+      border-left: 1px solid white;
+    }
+  }
+}
