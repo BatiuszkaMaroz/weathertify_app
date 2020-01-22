@@ -13,5 +13,4 @@ module.exports = {
     contentBase: './',
   },
   devtool: 'cheap-module-eval-source-map',
-  plugins: [new CleanPlugin.CleanWebpackPlugin()],
 };

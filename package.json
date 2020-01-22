@@ -6,9 +6,9 @@
   "scripts": {
     "live-server": "live-server",
     "watch-sass": "sass --watch sass/main.scss:css/main.css",
-    "webpack:dev": "webpack",
-    "webpack:dev--server": "webpack-dev-server --config webpack.config.js",
-    "webpack:prod": "webpack --config webpack.config.prod.js"
+    "webpack-dev": "webpack",
+    "webpack-dev-server": "webpack-dev-server --config webpack.config.js --open",
+    "webpack-prod": "webpack --config webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "sass": "^1.24.4",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"

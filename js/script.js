@@ -15,6 +15,12 @@ class App {
 App.init();
 updateDate();
 
+window.addEventListener('load', () => {
+  if(localStorage.getItem('city')) {
+    App.fetcher.fetchNameData(localStorage.getItem('city'));
+  }
+})
+
 document.querySelector('.menu').addEventListener('click', openMenu);
 
 function openMenu() {
